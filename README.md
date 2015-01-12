@@ -8,6 +8,7 @@ The following Perl modules are required for the client to work correctly:
 * [File::Fetch](https://metacpan.org/pod/File::Fetch)
 
 If you're using Fedora, these modules can be installed with the following command:
+    
     # yum install perl-Gtk3 perl-libwww-perl perl-File-Fetch
 
 # Known issues
