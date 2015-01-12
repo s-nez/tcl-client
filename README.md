@@ -1,5 +1,5 @@
 # tcl-client
-A simple GTK client for The Coding Love
+A simple GTK client for [The Coding Love](http://thecodinglove.com/)
 
 # Dependencies
 The following Perl modules are required for the client to work correctly:
