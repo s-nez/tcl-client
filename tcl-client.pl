@@ -23,7 +23,7 @@ sub page_worker_thread {
     while (defined(my $page = $page_queue->dequeue())) {
         foreach my $post (get_content($page)) {
             $post->{IMAGE} = download($post->{IMAGE_URL});
-			say 'downloaded';
+			say "Image: $post->{IMAGE}\nDescription: $post->{DESCRIPTION}";
             share($post);
             push @content, $post;
             ++$pages_fetched;
@@ -38,8 +38,8 @@ sub fetch_new_page {
 }
 
 sub cleanup {
-    foreach (@content) {
-        unlink $_->{IMAGE};
+    foreach my $post (@content) {
+        unlink $post->{IMAGE};
     }
 	return;
 }
