@@ -8,6 +8,8 @@ our $VERSION = '1.00';
 our @EXPORT  = qw(get_content download);
 use LWP::Simple;
 use File::Fetch;
+use threads;
+use threads::shared;
 
 sub eval_special_chars {
 	my %special_chars = (
@@ -29,7 +31,8 @@ sub get_content {
 		my ($description, $image) = ($+{desc}, $+{image});
 		eval_special_chars($description);
 		$image =~ s/\.jpg$/\.gif/;
-		push @content, {DESCRIPTION => $description, IMAGE_URL => $image};
+		my %post :shared = (DESCRIPTION => $description, IMAGE_URL => $image);
+		push @content, \%post;
 	}
 	return @content;
 }
