@@ -10,5 +10,5 @@ my $color = 0;
 for (get_content('http://thecodinglove.com')) {
 	print $colors[$color];
 	$color = !$color;
-	say 'Description: ', $_->{DESCRIPTION}, "\nImage: ", $_->{IMAGE};
+	say 'Description: ', $_->{DESCRIPTION}, "\nImage: ", $_->{IMAGE_URL};
 }

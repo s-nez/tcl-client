@@ -13,7 +13,8 @@ sub eval_special_chars {
 	my %special_chars = (
 		'&#8217;' => '`',
 		'&#8220;' => '"',
-		'&#8221;' => '"'
+		'&#8221;' => '"',
+		'&#8212;' => '-'
 	);
 	foreach my $char (keys %special_chars) {
 		$_[0] =~ s/$char/$special_chars{$char}/g;
@@ -28,7 +29,7 @@ sub get_content {
 		my ($description, $image) = ($+{desc}, $+{image});
 		eval_special_chars($description);
 		$image =~ s/\.jpg$/\.gif/;
-		push @content, {DESCRIPTION => $description, IMAGE => $image};
+		push @content, {DESCRIPTION => $description, IMAGE_URL => $image};
 	}
 	return @content;
 }
