@@ -11,11 +11,12 @@ my @content;
 my $content_index = -1;
 my $pages_fetched = 0;
 my $base_url = 'http://thecodinglove.com/page/';
+my $download_dir = '/tmp/tcl-client';
 
 sub fetch_new_page {
 	++$pages_fetched;
 	foreach my $post (get_content($base_url . $pages_fetched)) {
-		$post->{IMAGE} = download($post->{IMAGE});
+		$post->{IMAGE} = download($post->{IMAGE}, $download_dir);
 		push @content, $post;
 	}
 }
@@ -24,6 +25,7 @@ sub cleanup {
 	foreach (@content) {
 		unlink $_->{IMAGE};
 	}
+	rmdir $download_dir;
 }
 
 ############ Widgets ############ 
@@ -66,6 +68,7 @@ $window->add($vbox);
 ################################# 
 
 $window->show_all;
+mkdir $download_dir unless (-d $download_dir);
 Gtk3->main;
 cleanup();
 

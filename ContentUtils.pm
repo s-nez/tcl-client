@@ -34,7 +34,7 @@ sub get_content {
 }
 
 sub download {
-	my ($url) = @_;
+	my ($url, $download_dir) = @_;
 	my $ff = File::Fetch->new(uri => $url);
-	return $ff->fetch() or die $ff->error;
+	return $ff->fetch(to => $download_dir) or die $ff->error;
 }
