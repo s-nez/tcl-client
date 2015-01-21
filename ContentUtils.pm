@@ -13,7 +13,8 @@ sub eval_special_chars {
 	my %special_chars = (
 		'&#8217;' => '`',
 		'&#8220;' => '"',
-		'&#8221;' => '"'
+		'&#8221;' => '"',
+		'&#8230;' => '...'
 	);
 	foreach my $char (keys %special_chars) {
 		$_[0] =~ s/$char/$special_chars{$char}/g;
