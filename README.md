@@ -17,3 +17,4 @@ If you're using Fedora, these modules can be installed with the following comman
 * the GUI is not reponding while a new page is being downloaded
 * some HTML character escapes are still not evaluated
 * errors during page download are not handled
+* logo is not displayed at startup
