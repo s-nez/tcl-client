@@ -1,7 +1,8 @@
 # tcl-client
 A simple GTK client for [The Coding Love](http://thecodinglove.com/)
 
-**WARNING! This is a work in progress by no means considered stable**
+**WARNING! This program is no longer developed and the latest version
+doesn't work anymore because of source code changes at the website.**
 
 # Dependencies
 The following Perl modules are required for the client to work correctly:
