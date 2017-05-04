@@ -14,6 +14,18 @@ If you're using Fedora, these modules can be installed with the following comman
     
     # yum install perl-Gtk3 perl-libwww-perl perl-File-Fetch
 
+Under Arch Linux you are going to have to use cpan. First install cpanm:
+
+	# sudo cpan App::cpanminus
+
+And then use it to install perl modules:
+
+	# sudo cpanm Gtk3
+	# sudo cpanm LWP::Simple
+	# sudo cpanm File::Fetch
+
+(I got some errors here and had to --force Gtk3.)
+
 # Known issues
 * the GUI is not reponding while a new page is being downloaded
 * some HTML character escapes are still not evaluated
